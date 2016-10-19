@@ -1,0 +1,133 @@
+﻿/*------------------------------------------------ LOGIN ------------------------------------------------*/
+.login-container{width:100%;}
+.login-container .logo{
+    background:url('../images/logo.jpg') no-repeat center top;
+    width:500px;
+    height:208px;
+    margin:10px auto;
+    -moz-background-size: 100% auto;
+    -o-background-size: 100% auto;
+    -webkit-background-size: 100% auto;
+    background-size: 100% auto;
+}
+
+.frm-container{
+    
+    width:460px;
+    margin:10px auto;
+    padding:30px 10px;
+    border-radius:6px;
+    -moz-border-radius:6px;
+    -webkit-border-radius:6px;
+    -webkit-box-shadow: -8px 10px 6px 1px rgba(0,0,0,0.18);
+    -moz-box-shadow: -8px 10px 6px 1px rgba(0,0,0,0.18);
+    box-shadow: -8px 10px 6px 1px rgba(0,0,0,0.18);
+    border: 5px solid #fff;
+    border-bottom: 0px;
+    position:relative;
+    background: rgba(255,255,255,1);
+}
+.frm-container .frm-login{height:170px;width:98%;margin:0 auto;padding:0px 0px 0px;}
+/*---------------------------------- FORMULARIO ------------------------------------*/
+/* ----------------------------- formulario ------------------------------------*/
+.user, .pass{text-align:center;}
+.frm-login  input[type=text], .frm-login  input[type=password]{
+
+    border: 0px;
+    background:#ffffff url('../images/text-boxes.png') no-repeat left top;
+    color:#888;
+    outline:none;
+    width: 80%;
+    height:45px!important;
+    margin: 5px auto 8px auto;
+    padding: 0 10px 0 33px;
+   
+    border-radius:6px;
+    -moz-border-radius:6px;
+    -webkit-border-radius:6px;
+    
+    -moz-background-size: 30px 160px;
+    -o-background-size: 30px 160px;
+    -webkit-background-size: 30px 160px;
+    background-size: 30px 160px;
+    
+    -webkit-box-shadow:inset 0px 0px 10px #c6c6c6;
+    -moz-box-shadow:inset 0px 0px 10px #c6c6c6;
+    box-shadow:inset 0px 0px 10px #c6c6c6;
+    border:1px solid #cdcdcd;
+    opacity:0.70;
+
+}
+.frm-login  input:hover, .frm-login  input:focus{opacity:1;}
+.frm-login .user input{background-position:0px 0;}
+.frm-login .user input:focus{background-position:0px -40px;}
+.frm-login .pass input{background-position:0px -80px;}
+.frm-login .pass input:focus{background-position:0px -120px;}
+
+/*btns*/
+.btns{margin:0 auto;width: 95%;padding-left: 11%;margin-top: 5px;}
+.frm-login button{
+    color:#ffffff;
+    font-size:15px;
+    font-weight:bold;
+    text-shadow:1px 1px 2px #555555;
+    text-align:center;
+    outline:none;
+    height: 40px;
+    margin: 5px 2px;
+    padding: 0px;
+    width: 40%;
+    height:45px;
+    border-radius:6px;
+    -moz-border-radius:6px;
+    -webkit-border-radius:6px;
+    cursor:pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    
+    -webkit-transition: left 0.3s linear;
+    -webkit-transition-property:background;
+    -moz-transition: left 0.3s linear;
+    -moz-transition-property:background;
+    -o-transition: left 0.3s linear;
+    -o-transition-property:background;
+    -ms-transition: left 0.3s linear;
+    -ms-transition-property:background;
+    transition: left 0.3s linear;
+    transition-property:background;
+}
+.frm-login button.btn-cancelar{background: rgba(25,23,24,1);border:1px solid #191718;}
+.frm-login button.btn-cancelar:hover{background: rgba(39,36,38,1);}
+.frm-login button.btn-aceptar{background: rgba(136,0,21,1);border:1px solid #9e293b;}
+.frm-login button.btn-aceptar:hover{background: rgba(158,41,59,1);}
+footer p{color:#848484;}
+/* 8. Media Queries
+------------------------------*/
+@media screen and (max-width: 1199px) and (min-width: 991px) {}
+
+@media screen and (max-width: 1199px) {}
+
+@media screen and (max-width: 992px) and (min-width: 768px) {}
+
+@media screen and (max-width: 992px) {
+}
+@media only screen and (min-width: 768px) {
+}
+@media screen and (max-width: 767px) {
+	.login-container .logo{
+	    width:300px;
+	    height:125px;
+	    margin:5px auto;
+	    -moz-background-size: 100% auto;
+	    -o-background-size: 100% auto;
+	    -webkit-background-size: 100% auto;
+	    background-size: 100% auto;
+	}
+	.frm-container{
+		width: 98%;
+    	margin: 0 auto;
+    	padding: 20px 0px;
+	}
+
+}
+
