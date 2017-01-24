@@ -50,9 +50,9 @@ getCancionesNivelUsuario($nivel, $canciones_nivel);
         <nav class="left-nav">          
           <ul>
             <li><a href="inicio.php"><i class="fa fa-home fa-fw"></i>Inicio</a></li>
-            <li><a href="nivel1_lecciones.php"><i class="active"></i>Nivel 1</a></li>
-            <li><a href="retos.php" class="active"><i class="fa fa-bar-chart"></i>Retos</a></li>          
-            <li><a href="#"><i class="fa fa-music"></i>Canciones</a></li>
+            <li><a href="nivel1_lecciones.php"><i class="fa fa-bar-chart"></i>Nivel 1</a></li>
+            <li><a href="retos.php" ><i class="fa fa-lightbulb-o"></i>Retos</a></li>          
+            <li><a href="canciones_backing_track.php" class="active"><i class="fa fa-music"></i>Canciones</a></li>
             <li><a href="index.php"><i class="fa fa-power-off"></i>Cerrar Sesi&oacute;n</a></li>
           </ul>  
 
@@ -72,7 +72,7 @@ getCancionesNivelUsuario($nivel, $canciones_nivel);
 
               <ul class="text-uppercase">
 
-                <li><a href="#" class="active">Retos</a></li>
+                <li><a href="#" class="active">Canciones</a></li>
                 
 
               </ul>  
@@ -94,15 +94,16 @@ getCancionesNivelUsuario($nivel, $canciones_nivel);
           <div class="flex-row flex-content-row">
 
             <div class="content-widget white-bg col-2">
+              <h2 class="inline-block"><img alt="" src="<?php  echo $cancion['ruta_album'];?>" WIDTH=100 HEIGHT=100><?php echo utf8_encode($cancion['titulo'])."-".utf8_encode($cancion['artista']);?></h2><hr>
+              
 
-              <div class="square"></div>
-
-              <h2 class="inline-block"><?php echo utf8_encode($cancion['titulo'])."-".utf8_encode($cancion['artista']);?></h2><hr>
+              
 
               <p><b><?php echo "Descripcion de la cancion";?></b> </p>
 
               <p><?php echo "Tono:".utf8_encode($cancion['tono']);?></p>
               <p><?php echo "Tempo:".utf8_encode($cancion['tempo']);?></p>              
+              <p><?php echo "".utf8_encode($cancion['descripcion']);?></p>              
 
               <p class="text-right"> <a href="descarga_btm.php?archivo=<?php  echo $cancion['ruta'];?>" target="_blank" ><i class="fa fa-music"></i> Descargar BackingTrack</a></p>
               <p class="text-right"> <a href="<?php  echo $cancion['ruta_youtube'];?>" target="_blank" ><i class="fa fa-music"></i> Ver Video</a></p>

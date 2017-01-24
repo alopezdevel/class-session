@@ -42,7 +42,7 @@ getLeccionesNivelUsuario($nivel,$leccion, $leccion_nivel);
             <li><a href="inicio.php"><i class="fa fa-home fa-fw"></i>Inicio</a></li>
             <li><a href="nivel1_lecciones.php" class="active"><i class="fa fa-bar-chart"></i>Nivel 1</a></li>
             <li><a href="retos.php"><i class="fa fa-lightbulb-o"></i>Retos</a></li>
-            <li><a href="#"><i class="fa fa-music"></i>Canciones</a></li>
+            <li><a href="canciones_backing_track.php"><i class="fa fa-music"></i>Canciones</a></li>
             <li><a href="index.php"><i class="fa fa-power-off"></i>Cerrar Sesi&oacute;n</a></li>
           </ul>  
         </nav>
