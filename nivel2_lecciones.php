@@ -3,7 +3,7 @@
 <?php include("funciones_consulta.php");
 $leccion_nivel = NULL;
 
-$nivel = "1";
+$nivel = "2";
 $leccion = "1";
 getLeccionesNivelUsuario($nivel,$leccion, $leccion_nivel);
 
@@ -40,7 +40,7 @@ getLeccionesNivelUsuario($nivel,$leccion, $leccion_nivel);
         <nav class="left-nav">          
           <ul>
             <li><a href="inicio.php"><i class="fa fa-home fa-fw"></i>Inicio</a></li>
-            <li><a href="nivel1_lecciones.php" class="active"><i class="fa fa-bar-chart"></i>Nivel 1</a></li>
+            <li><a href="nivel2_lecciones.php" class="active"><i class="fa fa-bar-chart"></i>Nivel 2</a></li>           
           </ul>  
         </nav>
       </div>
@@ -66,7 +66,7 @@ getLeccionesNivelUsuario($nivel,$leccion, $leccion_nivel);
               <p><b><?php echo utf8_encode($leccion['subtitulo']);?></b> </p>
               <p><?php echo utf8_encode($leccion['descripcion']);?></p>
               <p class="text-right"> <a href="descarga.php?archivo=<?php  echo $leccion['ruta'];?>" target="_blank" ><i class="fa fa-file-pdf-o"></i> Descargar PDF</a></p>
-              <p class="text-right"> <a href="nivel1_videos.php?leccion=<?php  echo $leccion['leccion'];?>" ><i class="fa fa-video-camera"></i> Ver videos</a></p>
+              <p class="text-right"> <a href="nivel2_videos.php?leccion=<?php  echo $leccion['leccion'];?>" ><i class="fa fa-video-camera"></i> Ver videos</a></p>
             </div>
           </div>
           <?php }
