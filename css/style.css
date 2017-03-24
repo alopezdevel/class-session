@@ -146,8 +146,7 @@ footer { padding: 15px;}
 	display:none; 
 }
 .left-nav li { font-weight: 300; }
-.left-nav a.active,
-.left-nav a:hover {background: #18191b;border-left: 8px solid #880015;}
+.left-nav > ul > li > a.active, .left-nav > ul > li > a:hover, .left-nav > ul > li.submenu:hover > a {background: #18191b;border-left: 8px solid #880015;}
 .left-nav a {
 	color: #e9e9ea;
 	display: block;
@@ -155,7 +154,17 @@ footer { padding: 15px;}
 	transition: all 0.3s ease;
 }
 .left-nav .fa { margin-right: 15px; }
-
+/*---------------------SUBMENU -------------------*/
+.left-nav .submenu > ul{
+    padding: 0px 5px 0px 20px;
+    background:rgba(109,109,109,0.1);
+}
+.left-nav .submenu li a{
+    padding-top:15px!important;
+    padding-bottom: 15px!important;
+    font-size: 0.85em; 
+}
+.left-nav .submenu li a:hover i{color:#973939;}
 /* 3. Right Column
 ------------------------------*/
 .top-nav-container {
