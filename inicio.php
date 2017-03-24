@@ -88,9 +88,12 @@ if ( $_SESSION['acceso'] != "U" ){ //No ha iniciado session: Esta ventana es sol
 
             <li><a href="inicio.php" class="active"><i class="fa fa-home fa-fw"></i>Inicio</a></li>
 
-            <li><a href="nivel1_lecciones.php"><i class="fa fa-bar-chart"></i>Nivel 1</a></li>
-
-            <li><a href="nivel2_lecciones.php"><i class="fa fa-bar-chart"></i>Nivel 2 (new!)</a></li>
+            <li class="submenu"><a href="#" class="active"><i class="fa fa-bar-chart"></i>Niveles</a>
+                <ul>
+                    <li><a href="nivel1_lecciones.php"><i class="fa fa-bar-chart"></i>Nivel 1</a></li>
+                    <li><a href="nivel2_lecciones.php"><i class="fa fa-bar-chart"></i>Nivel 2 (new!)</a></li>
+                </ul>
+            </li>
 
             <li><a href="nivelsolos_lecciones.php"><i class="fa fa-bar-chart"></i>Solos de Rock!(new!)</a></li>
             <?php  if($_SESSION["usuario_actual"] == "alopez@globalpc.net"){?>
