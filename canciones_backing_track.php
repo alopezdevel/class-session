@@ -1,3 +1,10 @@
+<?php
+session_start();
+if ( $_SESSION['acceso'] != "U" ){ //No ha iniciado session: Esta ventana es solo para socios...no administradores
+    header("Location: index.php");    
+    exit;
+}else {  
+?>
 <!DOCTYPE html>
 <html lang="en">
 <?php include("funciones_consulta.php");
@@ -137,3 +144,4 @@ getCancionesNivelUsuario($nivel, $canciones_nivel);
   </body>
 
 </html>
+<?php }?>

@@ -4,15 +4,12 @@
 if (!isset($_GET['archivo']) || empty($_GET['archivo'])) {
    exit();
 }
-   $sub = "";
-   if($_GET['sub']  != "" ){
-       $sub = $_GET['sub']."/";
-   }
+
 //Utilizamos basename por seguridad, devuelve el 
 //nombre del archivo eliminando cualquier ruta. 
 $archivo = basename($_GET['archivo']);
 
-$ruta = "documentos/canciones/".$sub.$archivo;
+$ruta = "documentos/tonalidades/".$archivo;
 
 if (is_file($ruta))
 {

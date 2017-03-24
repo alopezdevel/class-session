@@ -1,6 +1,16 @@
+<?php
+session_start();
+session_unset();
+session_destroy();
+include("cn_usuarios.php");
+
+if ($dbconn && $dbselect) {
+?>
 <!DOCTYPE html>
 <html>
 <head>
+    <script src="/js/jquery-1.11.2.min.js" type="text/javascript"></script> 
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 	<meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">  
@@ -23,7 +33,7 @@ $(document).ready(inicio);
 
 function inicio(){  
 
-     //variables
+     //variables     
 
      mensaje = $( ".mensaje_valido" );
 
@@ -125,7 +135,7 @@ function inicio(){
 
                     $("#loginPassword").addClass( "error" );
 
-                    actualizarMensajeAlerta("Error: The User " +  $("#loginUser").val() + " does not exist" );                                                
+                    alert("Error: The User " +  $("#loginUser").val() + " does not exist" );                                                
 
                 break;
 
@@ -133,7 +143,7 @@ function inicio(){
 
                        
 
-                     location.href= "inicio.php?acceso="+data.acceso+"&usuario="+data.usuario;                       
+                     location.href= "inicio.php";                       
 
                 break;
 
@@ -143,7 +153,7 @@ function inicio(){
 
                     $("#loginPassword").addClass( "error" );
 
-                    actualizarMensajeAlerta("The Password you typed is incorrect"  );
+                    alert("The Password you typed is incorrect"  );
 
                 break;  
 
@@ -192,7 +202,7 @@ function inicio(){
     if ( o.val().length > max || o.val().length < min ) {
 
         actualizarMensajeAlerta( "Length of " + n + " must be between " + min + " and " + max + "."  );
-
+        alert( "Length of " + n + " must be between " + min + " and " + max + "."  );
         o.addClass( "error" );
 
         o.focus();
@@ -235,16 +245,16 @@ function inicio(){
 	<div class="login-container">
 	    <div class="logo"></div>
 	    <div class="frm-container">
-	        <form class="frm-login" method="post" action="">
+	        <form class="frm-login" method="post" >            
 	                <div class="user">
-	                    <input id="user_name" name="username" type="text" placeholder="Usuario:">
+	                    <input id="loginUser" name="loginUser" type="text" placeholder="Usuario:">
 	                </div>
 	                <div class="pass">
-	                    <input id="user_password" name="password" type="password" placeholder="Contraseña:">
+	                    <input id="loginPassword" name="loginPassword" type="password" placeholder="Contraseña:">
 	                </div>
 	                <div class="btns">
 	                    <button  class="btn-cancelar" type="reset">Cancelar</button>
-	                    <button id="btn_login" class="btn-aceptar" type="button">Aceptar</button>
+	                    <button id="button_aceptar" class="btn-aceptar" type="button">Aceptar</button>
 	                </div>
 	         </form>
 	    </div>
@@ -257,5 +267,12 @@ function inicio(){
 	<script src="js/jquery-migrate-1.2.1.min.js"></script>                  <!--  jQuery Migrate Plugin -->
 	<script src="https://www.google.com/jsapi"></script>                    <!-- Google Chart -->
 	<script type="text/javascript" src="js/templatemo-script.js"></script>  <!-- Templatemo Script -->
+    
+<?php }else{
+
+    echo '<script language="javascript"> alert (\'El sistema esta fuera de servicio. \')</script>';
+
+}
+?>
 </body>
 </html>

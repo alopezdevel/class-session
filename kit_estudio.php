@@ -1,19 +1,8 @@
-<?php
-session_start();
-if ( $_SESSION['acceso'] != "U" ){ //No ha iniciado session: Esta ventana es solo para socios...no administradores
-    header("Location: index.php");    
-    exit;
-}else {  
-?>
 <!DOCTYPE html>
 <html lang="en">
 <?php include("funciones_consulta.php");
-$leccion_nivel = NULL;
-
-$nivel = "2";
-$leccion = "1";
-getLeccionesNivelUsuario($nivel,$leccion, $leccion_nivel);
-
+$kit_estudio= NULL;
+getKitEstudio( $kit_estudio);               
 ?>
 <head>
     <meta charset="utf-8">                                                  
@@ -28,65 +17,117 @@ getLeccionesNivelUsuario($nivel,$leccion, $leccion_nivel);
     <link href="css/style.css" rel="stylesheet">
 </head>
   <body>  
+
     <!-- Left column -->
+
     <div class="flex-row">
+
       <div class="sidebar">
+
         <header class="site-header">
+
             <img alt="" src="images/logo_dashboard.png">
+
         </header>     
+
         <!-- Search box -->
+
         <form class="search-form" role="search">
+
           <div class="input-group">
+
               <button type="submit" class="fa fa-search"></button>
+
               <input type="text" class="form-control" placeholder="Search" name="srch-term" id="srch-term">           
+
           </div>
+
         </form>
         <div class="mobile-menu-icon">
             <i class="fa fa-bars"></i>
         </div>
         <nav class="left-nav">          
           <ul>
-            <li><a href="inicio.php"><i class="fa fa-home fa-fw"></i>Inicio</a></li>
-            <li><a href="nivel2_lecciones.php" class="active"><i class="fa fa-bar-chart"></i>Nivel 2</a></li>           
+            <li><a href="inicio.php"><i class="fa fa-home fa-fw"></i>Regresas al Inicio</a></li>            
           </ul>  
+
         </nav>
+
       </div>
+
       <!-- Main content --> 
+
       <div class="content col-1 light-gray-bg">
+
         <div class="top-nav-container">
+
           <div class="row">
+
             <nav class="top-nav col-lg-12 col-md-12">
+
               <ul class="text-uppercase">
-                <li><a href="#" class="active">Lecciones</a></li>                
+
+                <li><a href="#" class="active">Kit de Estudio</a></li>
+                
+
               </ul>  
+
             </nav> 
+
           </div>
+
         </div>
+
         <div class="content-container">
+
          <?php 
-        if(count($leccion_nivel)>0){
-            foreach($leccion_nivel as $leccion){?>
+
+        if(count($kit_estudio)>0){
+
+            foreach($kit_estudio as $leccion){?>
+
           <div class="flex-row flex-content-row">
+
             <div class="content-widget white-bg col-2">
+
               <div class="square"></div>
+
               <h2 class="inline-block"><?php echo utf8_encode($leccion['titulo']);?></h2><hr>
-              <p><b><?php echo utf8_encode($leccion['subtitulo']);?></b> </p>
+              
+
               <p><?php echo utf8_encode($leccion['descripcion']);?></p>
-              <p class="text-right"> <a href="descarga.php?archivo=<?php  echo $leccion['ruta'];?>" target="_blank" ><i class="fa fa-file-pdf-o"></i> Descargar PDF</a></p>
-              <p class="text-right"> <a href="nivel2_videos.php?leccion=<?php  echo $leccion['leccion'];?>" ><i class="fa fa-video-camera"></i> Ver videos</a></p>
+              <?php if($leccion['sub-seccion'] == "1"){ ?>
+                <p class="text-right"> <a href="<?php  echo $leccion['ruta'];?>" ><i class="fa fa-file-pdf-o"></i> Ir a la Seccion</a></p>
+<?php         }else{?>
+                <p class="text-right"> <a href="descarga.php?archivo=<?php  echo $leccion['ruta'];?>" target="_blank" ><i class="fa fa-file-pdf-o"></i> Descargar PDF</a></p>
+              <?php } ?>
+
             </div>
+
           </div>
+
           <?php }
+
           }?>
+
          
+
           <footer class="text-right"><p>Copyright &copy; 2016 Class Session - Alberto Guitarrista</p></footer>         
+
         </div>
+
       </div>
+
     </div>
+
     <!-- JS -->
+
     <script src="js/jquery-1.11.2.min.js"></script>      <!-- jQuery -->
+
     <script src="js/jquery-migrate-1.2.1.min.js"></script> <!--  jQuery Migrate Plugin -->
+
     <script type="text/javascript" src="js/script.js"></script>      <!-- Templatemo Script -->
+
   </body>
+
 </html>
-<?php }?>

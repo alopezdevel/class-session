@@ -48,7 +48,7 @@
   }
   function getLeccionesNivelUsuario($nivel,$leccion, &$arr_){
     include("cn_usuarios.php");                                        
-    $sql = "  SELECT  sTitulo, sSubtitulo, sDescripcion, sRuta ,sLeccion
+    $sql = "  SELECT  sTitulo, sSubtitulo, sDescripcion, sRuta ,sLeccion,sPista, sRutaArchivoAdicional, sNombreArchivoAdicional 
               FROM cb_lecciones WHERE eNivel ='".$nivel."'  ORDER BY iConsecutivo";              
     $result = mysql_query($sql, $dbconn);
     if (mysql_num_rows($result) > 0) {
@@ -56,6 +56,9 @@
             $arr_[] = array("titulo" => $Recordset['sTitulo'],  
                             "subtitulo" => $Recordset['sSubtitulo'],
                             "leccion" => $Recordset['sLeccion'],
+                            "pista" => $Recordset['sPista'],
+                            "ruta_adicional" => $Recordset['sRutaArchivoAdicional'],
+                            "adicional" => $Recordset['sNombreArchivoAdicional'],
                             "descripcion" => $Recordset['sDescripcion'],
                             "ruta" => $Recordset['sRuta'],
                             );
@@ -81,6 +84,39 @@
     mysql_free_result($result);                         
     mysql_close($dbconn);                             
   } 
+  function getKitEstudio( &$arr_){
+    include("cn_usuarios.php");                                        
+    $sql = "  SELECT  sTitulo,  sDescripcion, sRuta, eSubseccion
+              FROM kit_estudio   ORDER BY iConsecutivo";              
+    $result = mysql_query($sql, $dbconn);
+    if (mysql_num_rows($result) > 0) {
+        while ($Recordset = mysql_fetch_array($result)) {    
+            $arr_[] = array("titulo" => $Recordset['sTitulo'],                              
+                            "descripcion" => $Recordset['sDescripcion'],
+                            "sub-seccion" => $Recordset['eSubseccion'],
+                            "ruta" => $Recordset['sRuta'],
+                            );
+        }
+    }
+    mysql_free_result($result);                         
+    mysql_close($dbconn);                             
+  }
+  function getArmonia( &$arr_){
+    include("cn_usuarios.php");                                        
+    $sql = "  SELECT  sTitulo,  sDescripcion, sRuta
+              FROM cb_armonia   ORDER BY iConsecutivo";              
+    $result = mysql_query($sql, $dbconn);
+    if (mysql_num_rows($result) > 0) {
+        while ($Recordset = mysql_fetch_array($result)) {    
+            $arr_[] = array("titulo" => $Recordset['sTitulo'],                              
+                            "descripcion" => $Recordset['sDescripcion'],                            
+                            "ruta" => $Recordset['sRuta'],
+                            );
+        }
+    }
+    mysql_free_result($result);                         
+    mysql_close($dbconn);                             
+  }
   function ConsultaProgramaPentragrama($modulo, &$arr_){
       include("cn_usuarios.php");                                        
       $sql = "  SELECT  sCveModulo, eModulo, sLeccion, sSubtemas, iNumeroLeccion, sRutaPDF, sRutaVideo, eMes
